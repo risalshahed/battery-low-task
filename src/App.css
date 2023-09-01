@@ -1,0 +1,26 @@
+* {
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+table, th, td {
+  border: 1px solid #000;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 3px;
+}
+
+/* 2 step form */
+.form-header {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.prev-btn {
+  display: block;
+  margin: auto;
+}
