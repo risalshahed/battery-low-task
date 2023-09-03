@@ -4,6 +4,8 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from
 
 export default function DisplayData() {
   const { finalData } = useContext(multiStepContext);
+  console.log(finalData);
+  
   return (
     <div>
       <TableContainer style={{display: 'flex', justifyContent: 'center'}}>
@@ -14,10 +16,13 @@ export default function DisplayData() {
               <TableCell>Project Description</TableCell>
               <TableCell>Client</TableCell>
               <TableCell>Contractor</TableCell>
-              <TableCell>Project Name 2</TableCell>
-              <TableCell>Project Description 2</TableCell>
-              <TableCell>Client 2</TableCell>
-              <TableCell>Contractor 2</TableCell>
+              <TableCell>Max X</TableCell>
+              <TableCell>Min X</TableCell>
+              <TableCell>Max Y</TableCell>
+              <TableCell>Min Y</TableCell>
+              <TableCell>Max Z</TableCell>
+              <TableCell>Min Z</TableCell>
+              
             </TableRow>
           </TableHead>
 
@@ -29,10 +34,12 @@ export default function DisplayData() {
                   <TableCell>{datum.projectdescription}</TableCell>
                   <TableCell>{datum.client}</TableCell>
                   <TableCell>{datum.contractor}</TableCell>
-                  <TableCell>{datum.projectname2}</TableCell>
-                  <TableCell>{datum.projectdescription2}</TableCell>
-                  <TableCell>{datum.client2}</TableCell>
-                  <TableCell>{datum.contractor2}</TableCell>
+                  <TableCell>{datum.max_X}</TableCell>
+                  <TableCell>{datum.min_X}</TableCell>
+                  <TableCell>{datum.max_Y}</TableCell>
+                  <TableCell>{datum.min_Y}</TableCell>
+                  <TableCell>{datum.max_Z}</TableCell>
+                  <TableCell>{datum.min_Z}</TableCell>
                 </TableRow>
               ))
             }

@@ -16,6 +16,7 @@ export default function MultiStepForm() {
         return <SecondStep />
     }
   }
+  
   return (
     <div className='form'>
       <div className="form-header">

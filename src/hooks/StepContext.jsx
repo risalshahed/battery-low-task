@@ -11,6 +11,7 @@ export default function StepContext() {
   function submitData(e) {
     e.preventDefault();
     setFinalData(prevFinalData => [...prevFinalData, userData]);
+    // console.log(finalData);
     setUserData('');
     setStep(1);
   }

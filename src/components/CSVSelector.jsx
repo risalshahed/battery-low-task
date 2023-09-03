@@ -1,6 +1,7 @@
 import { useContext } from "react";
+import { csvDataContext } from "../pages/Home";
 // import Papa from "papaparse";
-import { csvDataContext } from "../App";
+// import { csvDataContext } from "../App";
 
 export default function CSVSelector() {
   const { values, tableRows, changeHandler, findMax, findMin } = useContext(csvDataContext);
@@ -67,6 +68,7 @@ export default function CSVSelector() {
     <div>
       {/* File Uploader */}
       <input
+        className="tanvir"
         type="file"
         name="file"
         onChange={changeHandler}
