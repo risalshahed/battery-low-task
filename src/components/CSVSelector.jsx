@@ -1,11 +1,14 @@
+import { useContext } from "react";
 // import Papa from "papaparse";
-import { useState } from "react";
+import { csvDataContext } from "../App";
 
-export default function CSVSelector({ values, changeHandler, tableRows }) {
-  console.log(values);
-  console.log(tableRows);
-  /* // State to store parsed data
-  const [parsedData, setParsedData] = useState([]);
+export default function CSVSelector() {
+  const { values, tableRows, changeHandler, findMax, findMin } = useContext(csvDataContext);
+
+  // console.log(values);
+  // console.log(tableRows);
+  // State to store parsed data
+  /* const [parsedData, setParsedData] = useState([]);
 
   //State to store table Column name
   const [tableRows, setTableRows] = useState([]);
@@ -38,7 +41,7 @@ export default function CSVSelector({ values, changeHandler, tableRows }) {
         setValues(valuesArray);
       },
     });
-  }; */
+  };
 
   // console.log(values);
 
@@ -52,7 +55,7 @@ export default function CSVSelector({ values, changeHandler, tableRows }) {
     const company = values.map(value => parseFloat(value[index]));
     const minValue = Math.min(...company);
     return minValue;
-  }
+  } */
 
   /* const x = values.map(value => parseFloat(value[1]));
   console.log(x);
@@ -62,7 +65,6 @@ export default function CSVSelector({ values, changeHandler, tableRows }) {
 
   return (
     <div>
-      {/* <CSVSelector /> */}
       {/* File Uploader */}
       <input
         type="file"

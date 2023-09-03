@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import MultiStepForm from "../components/MultiStepForm";
+import App from "../App";
 
 export const multiStepContext = createContext();
 
@@ -17,7 +17,7 @@ export default function StepContext() {
 
   return (
     <multiStepContext.Provider value={{ step, setStep, userData, setUserData, finalData, setFinalData, submitData }}>
-      <MultiStepForm />
+      <App />
     </multiStepContext.Provider>
   )
 }

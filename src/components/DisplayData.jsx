@@ -1,5 +1,5 @@
-import { useContext } from "react"
-import { multiStepContext } from "../hooks/StepContext"
+import { useContext } from "react";
+import { multiStepContext } from "../hooks/StepContext";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 export default function DisplayData() {

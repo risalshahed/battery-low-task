@@ -1,18 +1,17 @@
-import "./App.css";
-import { createContext, useState } from "react";
-import CSVSelector from "./components/CSVSelector";
-import MultiStepForm from "./components/MultiStepForm";
+/* import { createContext, useState } from 'react'
+import App from '../App';
 import Papa from "papaparse";
 
 export const csvDataContext = createContext();
 
-function App() {
+export default function CSVDataContext() {
+
   const [parsedData, setParsedData] = useState([]);
 
-  // state to store table Column name
+  //State to store table Column name
   const [tableRows, setTableRows] = useState([]);
 
-  // state to store the values
+  //State to store the values
   const [values, setValues] = useState([]);
 
   const changeHandler = e => {
@@ -44,24 +43,15 @@ function App() {
 
   // console.log(values);
 
-  const findMax = index => {
-    const company = values.map(value => parseFloat(value[index]));
-    const maxValue = Math.max(...company);
-    return maxValue;
-  }
-
-  const findMin = index => {
-    const company = values.map(value => parseFloat(value[index]));
-    const minValue = Math.min(...company);
-    return minValue;
-  }
-
   return (
-    <csvDataContext.Provider value={{ values, tableRows, changeHandler, findMax, findMin }}>
-      <CSVSelector />
-      <MultiStepForm />
-    </csvDataContext.Provider>
-  );
-}
-
-export default App;
+    <>
+      {
+        values.length ? (
+          <csvDataContext.Provider value={{ values, tableRows, changeHandler }}>
+            <App />
+          </csvDataContext.Provider>
+        ) : null
+      }
+    </>
+  )
+} */

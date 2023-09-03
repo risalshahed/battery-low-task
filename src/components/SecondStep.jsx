@@ -1,28 +1,81 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useContext } from "react";
 import { multiStepContext } from "../hooks/StepContext";
+import { csvDataContext } from "../App";
 
 export default function SecondStep() {
   const { setStep, submitData, userData, setUserData } = useContext(multiStepContext);
 
+  const { values, tableRows, changeHandler, findMax, findMin } = useContext(csvDataContext);
+
   return (
     <div>
+      {/* First Step Input Fields */}
+      <div>
+        <TextField
+          label='Project Name'
+          value={userData.projectname}
+          onChange={e => setUserData({...userData, 'projectname': e.target.value})}
+          margin='normal'
+          variant='outlined'
+          color='secondary'
+          disabled
+        />
+      </div>
+      <div>
+        <TextField
+          label='Project Description'
+          value={userData.projectdescription}
+          onChange={e => setUserData({...userData, 'projectdescription': e.target.value})}
+          margin='normal'
+          variant='outlined'
+          color='secondary'
+          disabled
+        />
+      </div>
+      <div>
+        <TextField
+          value={userData.client}
+          onChange={e => setUserData({...userData, 'client': e.target.value})}
+          label='Client'
+          margin='normal'
+          variant='outlined'
+          color='secondary'
+          disabled
+        />
+      </div>
+      <div>
+        <TextField
+          label='Contractor'
+          value={userData.contractor}
+          onChange={e => setUserData({...userData, 'contractor': e.target.value})}
+          margin='normal'
+          variant='outlined'
+          color='secondary'
+          disabled
+        />
+      </div>
+
+      {/* Second Step Input Fields */}
       <div>
         <TextField
           label='Max X'
+          InputLabelProps={ values.length && {  shrink: true }}
           type='number'
-          value={userData.projectname2}
+          value={values.length ? findMax(1) : userData.max_X}
           onChange={e => setUserData({...userData, 'max_X': e.target.value})}
           margin='normal'
           variant='outlined'
           color='secondary'
+          // disabled={values.length}
         />
       </div>
       <div>
         <TextField
           label='Min X'
+          InputLabelProps={ values.length && {  shrink: true }}
           type='number'
-          value={userData.projectdescription2}
+          value={values.length ? findMin(1) : userData.min_X}
           onChange={e => setUserData({...userData, 'min_X': e.target.value})}
           margin='normal'
           variant='outlined'
@@ -32,8 +85,9 @@ export default function SecondStep() {
       <div>
         <TextField
           label='Max Y'
+          InputLabelProps={ values.length && {  shrink: true }}
           type='number'
-          value={userData.client2}
+          value={values.length ? findMax(2) : userData.max_Y}
           onChange={e => setUserData({...userData, 'max_Y': e.target.value})}
           margin='normal'
           variant='outlined'
@@ -43,8 +97,9 @@ export default function SecondStep() {
       <div>
         <TextField
           label='Min Y'
+          InputLabelProps={ values.length && {  shrink: true }}
           type='number'
-          value={userData.contractor2}
+          value={values.length ? findMin(2) : userData.min_Y}
           onChange={e => setUserData({...userData, 'min_Y': e.target.value})}
           margin='normal'
           variant='outlined'
@@ -54,8 +109,9 @@ export default function SecondStep() {
       <div>
         <TextField
           label='Max Z'
+          InputLabelProps={ values.length && {  shrink: true }}
           type='number'
-          value={userData.client2}
+          value={values.length ? findMax(3) : userData.max_Z}
           onChange={e => setUserData({...userData, 'max_Z': e.target.value})}
           margin='normal'
           variant='outlined'
@@ -65,8 +121,9 @@ export default function SecondStep() {
       <div>
         <TextField
           label='Min Z'
+          InputLabelProps={ values.length && {  shrink: true }}
           type='number'
-          value={userData.contractor2}
+          value={values.length ? findMin(3) : userData.min_Z}
           onChange={e => setUserData({...userData, 'min_Z': e.target.value})}
           margin='normal'
           variant='outlined'
