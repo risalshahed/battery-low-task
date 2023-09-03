@@ -6,7 +6,7 @@ import { csvDataContext } from "../App";
 export default function SecondStep() {
   const { setStep, submitData, userData, setUserData } = useContext(multiStepContext);
 
-  const { values, tableRows, changeHandler, findMax, findMin } = useContext(csvDataContext);
+  const { values, findMax, findMin } = useContext(csvDataContext);
 
   return (
     <div>
