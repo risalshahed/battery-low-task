@@ -7,7 +7,7 @@ import { multiStepContext } from "../hooks/StepContext";
 export const csvDataContext = createContext();
 
 export default function Home() {
-  const {userData, setUserData} = useContext(multiStepContext);
+  const {userData, setUserData, finalData} = useContext(multiStepContext);
 
   const [parsedData, setParsedData] = useState([]);
 
@@ -41,16 +41,24 @@ export default function Home() {
         // Filtered Values
         setValues(valuesArray);
 
-        // Calculate and set maximum and minimum KP values in userData
-        const max_X = Math.max(...valuesArray.map(value => parseFloat(value[1])));
-        const min_X = Math.min(...valuesArray.map(value => parseFloat(value[1])));
-        const max_Y = Math.max(...valuesArray.map(value => parseFloat(value[2])));
-        const min_Y = Math.min(...valuesArray.map(value => parseFloat(value[2])));
-        const max_Z = Math.max(...valuesArray.map(value => parseFloat(value[3])));
-        const min_Z = Math.min(...valuesArray.map(value => parseFloat(value[3])));
+        const projectValuesChanged =
+          userData.projectname !== finalData[finalData.length - 1]?.projectname ||
+          userData.projectdescription !== finalData[finalData.length - 1]?.projectdescription ||
+          userData.client !== finalData[finalData.length - 1]?.client ||
+          userData.contractor !== finalData[finalData.length - 1]?.contractor;
 
-        // Update userData with these values
-        setUserData({ ...userData, max_X, min_X, max_Y, min_Y, max_Z, min_Z });
+        // If project-related values have changed, update KP values in userData
+        if (projectValuesChanged) {
+          const max_X = Math.max(...valuesArray.map(value => parseFloat(value[1])));
+          const min_X = Math.min(...valuesArray.map(value => parseFloat(value[1])));
+          const max_Y = Math.max(...valuesArray.map(value => parseFloat(value[2])));
+          const min_Y = Math.min(...valuesArray.map(value => parseFloat(value[2])));
+          const max_Z = Math.max(...valuesArray.map(value => parseFloat(value[3])));
+          const min_Z = Math.min(...valuesArray.map(value => parseFloat(value[3])));
+
+          // Update userData with these values
+          setUserData({ ...userData, max_X, min_X, max_Y, min_Y, max_Z, min_Z });
+        }
       },
     });
   };
@@ -70,7 +78,7 @@ export default function Home() {
   }
 
   return (
-    <csvDataContext.Provider value={{ values, tableRows, changeHandler, findMax, findMin }}>
+    <csvDataContext.Provider value={{ tableRows, values, changeHandler, findMax, findMin }}>
       <CSVSelector />
       <MultiStepForm />
     </csvDataContext.Provider>

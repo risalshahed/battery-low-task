@@ -9,12 +9,12 @@ export default function SecondStep() {
 
   const { values, findMax, findMin } = useContext(csvDataContext);
 
-  console.log(userData);
+  // console.log(userData);
 
   return (
-    <div>
+    <div className="second_step">
       {/* First Step Input Fields */}
-      <div className="first_step_input_disabled">
+      <div>
         <div className="all_min_max">
           <div>
             <TextField
@@ -164,15 +164,13 @@ export default function SecondStep() {
         </div>
 
         <div className="second_button_div">
-          <div>
-            <Box my={2} display='flex' justifyContent='center'>
+            <Box my={2}>
               <Button onClick={() => setStep(1)} variant='contained' color='primary'>
                 Previous
               </Button>
             </Box>
-          </div>
           <div>
-            <Box my={2} display='flex' justifyContent='center'>
+            <Box my={2}>
               <Button onClick={submitData} variant='contained' color='secondary'>
                 Submit
               </Button>

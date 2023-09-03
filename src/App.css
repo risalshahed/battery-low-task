@@ -4,10 +4,16 @@
   box-sizing: border-box;
 }
 
+table {
+  margin: auto;
+}
+
 table, th, td {
   border: 1px solid #000;
   border-collapse: collapse;
+  text-align: center;
 }
+
 th, td {
   padding: 3px;
 }
@@ -45,16 +51,7 @@ th, td {
 }
 /* FirstStep end  */
 
-
-
-/* SecondStep st  */
-.first_step_input_disabled {
-  /* display: none; */
-  /* display: flex;
-  gap: 20px;
-  padding: 20px 30px; */
-}
-
+/* SecondStep */
 .second_step_input {
   /* background-image: linear-gradient( 190deg, rgb(245, 214, 214), rgb(200, 233, 228)); */
   background-color: #f2f2f2;
@@ -80,37 +77,6 @@ th, td {
 }
 /* SecondStep end  */
 
-
-
-@media (max-width: 541px) {
-  .all_min_max{
-    justify-content: center;
-    gap: 10px ;
-  
-  }
-  .first_step_from{
-    justify-content: center;
-    gap: 10px ; 
-  
-  } 
-  .first_button_div {
-    justify-content:center;
-  }
-  .second_button_div{
-    display: flex;
-    justify-content:center;
-    gap: 20px;
-  }
-}
-
-
-@media (max-width: 521px) {
-  .all_min_max{
-    justify-content: center;
-    gap: 0;
-  }
-  .first_step_from{
-    justify-content: center;
-    gap: 0;
-  } 
+.display_data {
+  margin: 48px auto;
 }

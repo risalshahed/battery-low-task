@@ -59,7 +59,7 @@ export default function FirstStep() {
       </div>
 
       <div className='first_button_div'>
-        <Box my={2} display='flex' justifyContent='center'>
+        <Box my={2}>
           <Button onClick={() => setStep(2)} variant='contained' color='primary'>
             Next
           </Button>
